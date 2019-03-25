@@ -4,7 +4,7 @@ class Request
 {
     public function isPost()
     {
-        if($_SERVER['REQUEST_METHOD'] === 'POST')
+        if ($_SERVER['REQUEST_METHOD'] === 'POST')
         {
             return true;
         }
@@ -14,7 +14,7 @@ class Request
 
     public function getGet($name, $default = null)
     {
-        if(isset($_GET[$name]))
+        if (isset($_GET[$name]))
         {
             return $_GET[$name];
         }
@@ -24,7 +24,7 @@ class Request
 
     public function getPost($name, $default = null)
     {
-        if(isset($_POST[$name]))
+        if (isset($_POST[$name]))
         {
             return $_POST[$name];
         }
@@ -34,7 +34,7 @@ class Request
 
     public function getHost()
     {
-        if(!empty($_SERVER['HTTP_HOST']))
+        if (!empty($_SERVER['HTTP_HOST']))
         {
             return $_SERVER['HTTP_HOST'];
         }
@@ -44,7 +44,7 @@ class Request
 
     public function isSsl()
     {
-        if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+        if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
         {
             return true;
         }
@@ -62,11 +62,11 @@ class Request
         $script_name = $_SERVER['SCRIPT_NAME'];
         $request_uri = $this->getRequestUri();
 
-        if(0 === strpos($request_uri, $script_name))
+        if (0 === strpos($request_uri, $script_name))
         {
             return $script_name;
         }
-        else if(0 === strpos($request_uri, dirname($script_name)))
+        else if (0 === strpos($request_uri, dirname($script_name)))
         {
             return rtrim($script_name, '/');
         }
@@ -77,7 +77,7 @@ class Request
         $base_url = $this->getBaseUrl();
         $request_uri = $this->getRequestUri();
 
-        if(false !== ($pos = strpos($request_uri, '?')))
+        if (false !== ($pos = strpos($request_uri, '?')))
         {
             $request_uri = substr($request_uri, 0, $pos);
         }
