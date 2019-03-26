@@ -1,4 +1,5 @@
-# PHP + MySQL + Apache + Docker Template
+# PHP Framework
+パーフェクトPHP第7章
 
 ## Setup
 1. MySQLの設定ファイルをコピーし編集する
