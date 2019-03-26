@@ -4,8 +4,8 @@
 ## Setup
 1. MySQLの設定ファイルをコピーし編集する
 ```
-$ cp docker/mysql/.env_db.example docker/mysql/.env_db
-$ [vim/emacs/nano or your favorite editor] docker/mysql/.env_db
+$ cp docker/mysql/.env.example docker/mysql/.env
+$ [vim/emacs/nano or your favorite editor] docker/mysql/.env
 ```
 
 2. コンテナ起動
