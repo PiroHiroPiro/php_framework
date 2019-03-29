@@ -12,7 +12,7 @@ abstract class Controller
 
     public function __construct($application)
     {
-        $this->controller_name = strtolower(substr(get_class($this, 0, -10)));
+        $this->controller_name = strtolower(substr(get_class($this), 0, -10));
 
         $this->application = $application;
         $this->request = $application->getRequest();
