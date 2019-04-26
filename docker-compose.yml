@@ -1,25 +1,28 @@
-version: '2'
+version: "3"
 services:
   db:
     image: mysql:5.7
+    container_name: docker_template_mysql
     environment:
       - "TZ=Japan"
-    volumes:
-      - ./docker/mysql/volumes:/var/lib/mysql
-      - ./docker/mysql/conf.d:/etc/mysql/conf.d
     env_file:
       - ./docker/mysql/.env
     ports:
       - "3306:3306"
-  web:
+    volumes:
+      - ./docker/mysql/volumes:/var/lib/mysql
+      - ./docker/mysql/conf.d:/etc/mysql/conf.d
+
+  php:
     build:
       context: .
       dockerfile: ./docker/php/Dockerfile
-    environment:
-      - "TZ=Japan"
-    volumes:
-      - ./html:/var/www/html
-    ports:
-      - '80:80'
+    container_name: docker_template_php
     depends_on:
       - db
+    environment:
+      - "TZ=Japan"
+    ports:
+      - '80:80'
+    volumes:
+      - ./html:/var/www/html
