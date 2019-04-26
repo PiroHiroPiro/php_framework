@@ -4,7 +4,7 @@
 
 ## Requirement
 
-- [docker](https://www.docker.com/)
+- [Docker](https://www.docker.com/)
   - docker-compose
 - [MySQL](https://www.mysql.com/)
 
