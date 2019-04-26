@@ -1,40 +1,51 @@
 # PHP Framework
+
 パーフェクトPHP第7章
 
-## セットアップ
-1. MySQLの設定ファイルをコピーし編集する
+## Requirement
+
+- [docker](https://www.docker.com/)
+  - docker-compose
+- [MySQL](https://www.mysql.com/)
+
+## Usage
+
+Run server:
+
+```console
+$ docker-compose up
 ```
+
+Go to `http://localhost:80` and you'll see the website.
+
+## Install
+
+Clone repository:
+
+```console
+$ git clone https://github.com/PiroHiroPiro/php_framework.git
+$ cd php_framework
+```
+
+Copy MySQL configuration file:
+
+```console
 $ cp docker/mysql/.env.example docker/mysql/.env
 $ [vim/emacs/nano or your favorite editor] docker/mysql/.env
 ```
 
-2. コンテナ起動
-```
-$ docker-compose up　-d
-```
+Enter the database name and root user password in the copied configuration file `docker/mysql/.env`:
 
-3. MySQLでユーザ作成する
-```
+Create db user:
+
+```console:
+$ docker-compose up　-d
 $ mysql -u root -p -h 127.0.0.1
 mysql> GRANT ALL ON YOUR_DATABASE.* to NEW_USER IDENTIFIED BY 'NEW_USER_PASSWORD'
-```
-
-4. コンテナ終了
-```
 $ docker-compose down
 ```
 
-## サーバ起動
-```
-$ docker-compose up
-```
-
-## MySQLへの接続
-```
-$ mysql -u NEW_USER -p -h 127.0.0.1
-```
-
-## 開発内容
+## What you need to develop(Japanese only)
 - Applicationクラス
     - ルートディレクトリの指定
     - アクションにあわせたルーティング定義
@@ -52,3 +63,7 @@ $ mysql -u NEW_USER -p -h 127.0.0.1
 - Viewファイル
     - アクションにあわせたHTMLの記述
     - レイアウトファイルの記述
+
+## Author
+
+[Hiroyuki Nishizawa](https://github.com/PiroHiroPiro)
